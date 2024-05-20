@@ -1,6 +1,9 @@
 package chapter6;
 
 public class Student {
+	
+	public static int serialNum = 10; // 고정된 = 전역!
+	
 	private String studentName; // 학생 이름
 	private int grade; // 학년
 	private int money; // 학생이 가지고 있는 돈

@@ -10,6 +10,7 @@ public class Bus {
 	public Bus(int busNumber, int charge) {
 		this.busNumber = busNumber;
 		this.CHARGE = charge;
+		Student.serialNum = 100;
 	}
 	
 	/**

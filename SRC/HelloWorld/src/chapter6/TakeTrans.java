@@ -1,10 +1,14 @@
 package chapter6;
 
 public class TakeTrans {
+	
 	public static void main(String[] args) {
 		// 학생 두 명 생성
 		Student stu1 = new Student("James", 5000);
 		Student stu2 = new Student("Tomas", 10000);
+		
+		stu1.serialNum = 20;
+		System.out.println(stu2.serialNum);
 		
 		Bus bus970 = new Bus(970, 100); // 970번 버스 --> 100원
 		Bus bus200 = new Bus(200, 500); // 200번 버스 --> 500원
