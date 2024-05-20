@@ -4,7 +4,7 @@ public class Subway {
 	private String lineNumber; // 지하철 노선
 	private int passengerCount; // 승객 수
 	private int money; // 수입액
-	public final int CHARGE;
+	public int CHARGE;
 	
 	// 지하철 노선 번호를 매개변수로 받는 생성자
 	public Subway(String lineNumber, int charge) {
@@ -16,7 +16,13 @@ public class Subway {
 	 * 지하철 탑승 + 수익 계산
 	 */
 	// 승객이 지하철에 탄 경우를 구현한 메서드
-	public int take() {
+	public int take(String discount) {
+		if(discount.equals("free")) {
+			CHARGE = 0;
+		}
+		if(discount.equals("half")) {
+			CHARGE /= 2;
+		}
 		this.money += CHARGE; // 수입 증가
 		passengerCount += 1; // 승객 수 증가
 		return CHARGE;

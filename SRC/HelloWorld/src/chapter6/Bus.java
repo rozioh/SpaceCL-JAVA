@@ -4,7 +4,7 @@ public class Bus {
 	private int busNumber; // 버스 번호
 	private int passengerCount; // 승객 수
 	private int money; // 버스 수입
-	public final int CHARGE; // 버스 요금
+	public int CHARGE; // 버스 요금
 	
 	// 버스 번호를 매개변수로 받는 생성자
 	public Bus(int busNumber, int charge) {
@@ -17,7 +17,10 @@ public class Bus {
 	 * 버스요금을 받아서 money(수익)을 증가 시키겠다.
 	 */
 	// 승객이 버스에 탄 경우를 구현한 메서드
-	public int take() {
+	public int take(boolean discount) {
+		if(discount) {
+			CHARGE /= 2;
+		}
 		this.money += CHARGE;
 		passengerCount += 1;
 		return CHARGE;
@@ -39,4 +42,6 @@ public class Bus {
 	public void showInfo() {
 		System.out.println("버스 " + busNumber + "번의 승객은 " + passengerCount + "명이고, 수입은 " + money + "입니다.");
 	}
+	
+	
 }
