@@ -6,6 +6,15 @@ public class StaticTest {
 	private int number;
 	private static int staticNumber;
 	
+	private static StaticTest instance = new StaticTest();
+	
+	private StaticTest() {
+		
+	}
+	public static StaticTest getInstance() {
+		return instance;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("static class");
 		
