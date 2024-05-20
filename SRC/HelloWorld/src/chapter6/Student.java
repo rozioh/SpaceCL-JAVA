@@ -24,6 +24,14 @@ public class Student {
 		return money;
 	}
 	
+	public void takeBusOff(Bus bus) {
+		bus.takeOff(); // 해당 버스에서 내릴게요
+	}
+	
+	public void takeSubwayOff(Subway subway) {
+		subway.takeOff(); // 지하철 하차
+	}
+	
 	// 학생의 현재 정보를 출력하는 메서드
 	public void showInfo() {
 		System.out.println(studentName + "님의 남은 돈은 " + money + "입니다.");

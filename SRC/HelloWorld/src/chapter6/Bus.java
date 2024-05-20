@@ -28,15 +28,11 @@ public class Bus {
 	 * 단 0이하 일때는 마이너스로 표기하지 않는다.
 	 * @param passengerCount
 	 */
-	public int takeOff(int psgCnt) {
-		if(passengerCount - psgCnt > 0) {
-			passengerCount -= psgCnt;
-		}else {
-			passengerCount = 0;
+	public void takeOff() {
+		if(passengerCount > 0) {
+			passengerCount -= 1;
 		}
-		return passengerCount;
 	}
-	
 	
 	// 버스 정보를 출력하는 메서드
 	public void showInfo() {

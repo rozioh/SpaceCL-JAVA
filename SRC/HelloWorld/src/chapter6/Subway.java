@@ -22,14 +22,12 @@ public class Subway {
 		return CHARGE;
 	}
 	
-	public int takeOff(int psgCnt) {
-		if(passengerCount - psgCnt > 0) {
-			passengerCount -= psgCnt;
-		}else {
-			passengerCount = 0;
+	public void takeOff() {
+		if(passengerCount > 0) {
+			passengerCount -= 1;
 		}
-		return passengerCount; 
 	}
+	
 	// 지하철 정보 출력하는 메서드
 	public void showInfo() {
 		System.out.println(lineNumber + "의 승객은 " + passengerCount + "명이고, 수입은 " + money + "입니다.");
