@@ -1,19 +1,17 @@
 package chapter6;
 
 public class Card {
-	private int cardNumber;
-	private static int serialNum = 10000;
+	private int cardID;
 	
-	public Card(){
-		serialNum++;
-		cardNumber = serialNum;
+	public Card(int serialNum){
+		cardID = serialNum;
 	}
 
-	public int getCardNumber() {
-		return cardNumber;
+	public int getCardID() {
+		return cardID;
 	}
 
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setCardID(int cardID) {
+		this.cardID = cardID;
 	}
 }

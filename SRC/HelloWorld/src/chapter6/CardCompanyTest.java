@@ -7,7 +7,7 @@ public class CardCompanyTest {
 		Card card1 = company.createCard();
 		Card card2 = company.createCard();
 		
-		System.out.println(card1.getCardNumber());
-		System.out.println(card2.getCardNumber());
+		System.out.println(card1.getCardID());
+		System.out.println(card2.getCardID());
 	}
 }
