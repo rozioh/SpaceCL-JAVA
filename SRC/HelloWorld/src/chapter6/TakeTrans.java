@@ -11,21 +11,26 @@ public class TakeTrans {
 		Subway subway3 = new Subway("3", 1000); // 1000원 차감
 		Subway subway9 = new Subway("9", 1500); // 1500원 차감
 		
-		/**
-		 * 3호선 1000원 9호선 1500원
-		 */
-		stu1.takeBus(bus970);
-		stu1.takeBus(bus200);
-		stu1.takeSubway(subway3);
-		stu1.takeSubway(subway9);
-		
+		// TODO 24.05.20 과제
+		// Student James
+		stu1.takeBus(bus970); // 버스 타고
 		stu1.takeBusOff(bus970); // 버스에서 내린다.
 		
+		stu1.takeSubway(subway3); // 지하철 타고 -->
+		// 문제: 지하철이나 버스를 먼저 탔던 다음 대중교통 이용시 50% 할인
+		stu1.takeSubwayOff(subway3); // 지하철에서 내린다.
 		stu1.showInfo(); // 현재 남은 돈 출력
 		
-		stu2.takeBus(bus970);
-		stu2.takeSubway(subway3);
+		// Student Tomas
 		stu2.takeSubway(subway9);
+		stu2.takeSubwayOff(subway9);
+		
+		stu2.takeSubway(subway3); // 지하철끼리는 공짜
+		stu2.takeSubwayOff(subway3); 
+		
+		stu2.takeBus(bus970); // 버스타고 --> 버스값 50% 할인
+		stu2.takeBusOff(bus970);
+		
 		stu2.showInfo();
 	} // end main
 } // end class
