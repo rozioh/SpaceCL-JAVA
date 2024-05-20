@@ -23,9 +23,8 @@ public class Student {
 			money -= discount;
 		}else {
 			bus.take(false);
-			money -= bus.CHARGE; // 학생 돈-
+			money -= bus.charge; // 학생 돈-
 		}
-		
 		return money;
 	}
 	
@@ -39,7 +38,7 @@ public class Student {
 			discount = subway.take("half");
 			this.money -= discount;
 		}else {
-			this.money -= subway.CHARGE;
+			this.money -= subway.charge;
 		}
 		
 		return money;

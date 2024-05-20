@@ -4,12 +4,12 @@ public class Bus {
 	private int busNumber; // 버스 번호
 	private int passengerCount; // 승객 수
 	private int money; // 버스 수입
-	public int CHARGE; // 버스 요금
+	public int charge; // 버스 요금
 	
 	// 버스 번호를 매개변수로 받는 생성자
 	public Bus(int busNumber, int charge) {
 		this.busNumber = busNumber;
-		this.CHARGE = charge;
+		this.charge = charge;
 		Student.serialNum = 100;
 	}
 	
@@ -19,11 +19,11 @@ public class Bus {
 	// 승객이 버스에 탄 경우를 구현한 메서드
 	public int take(boolean discount) {
 		if(discount) {
-			CHARGE /= 2;
+			charge /= 2;
 		}
-		this.money += CHARGE;
+		this.money += charge;
 		passengerCount += 1;
-		return CHARGE;
+		return charge;
 	}
 	
 	
