@@ -3,17 +3,26 @@ package chapter6;
 public class TakeTrans {
 	public static void main(String[] args) {
 		// 학생 두 명 생성
-		Student studentJames = new Student("James", 5000);
-		Student studentTomas = new Student("Tomas", 10000);
+		Student stu1 = new Student("James", 5000);
+		Student stu2 = new Student("Tomas", 10000);
 		
-		Bus bus100 = new Bus(100); // 노선 번호가 100번인 버스 생성
-		studentJames.takeBus(bus100); // James가 100번 버스를 탐
-		studentJames.showInfo(); // James 정보 출력
-		bus100.showInfo(); // 버스 정보 출력
+		Bus bus970 = new Bus(970, 100); // 970번 버스 --> 100원
+		Bus bus200 = new Bus(200, 500); // 200번 버스 --> 500원
+		Subway subway3 = new Subway("3", 1000); // 1000원 차감
+		Subway subway9 = new Subway("9", 1500); // 1500원 차감
 		
-		Subway subwayGreen = new Subway("2호선"); // 노선 번호가 2호선인 지하철 생성
-		studentTomas.takeSubway(subwayGreen); // Tomas가 2호선을 탐
-		studentTomas.showInfo(); // Tomas 정보 출력
-		subwayGreen.showInfo(); // 지하철 정보 출력
+		/**
+		 * 3호선 1000원 9호선 1500원
+		 */
+		stu1.takeBus(bus970);
+		stu1.takeBus(bus200);
+		stu1.takeSubway(subway3);
+		stu1.takeSubway(subway9);
+		stu1.showInfo(); // 현재 남은 돈 출력
+		
+		stu2.takeBus(bus970);
+		stu2.takeSubway(subway3);
+		stu2.takeSubway(subway9);
+		stu2.showInfo();
 	} // end main
 } // end class

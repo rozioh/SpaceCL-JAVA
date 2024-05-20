@@ -1,26 +1,27 @@
 package chapter6;
 
 public class Student {
-	public String studentName; // 학생 이름
-	public int grade; // 학년
-	public int money; // 학생이 가지고 있는 돈
+	private String studentName; // 학생 이름
+	private int grade; // 학년
+	private int money; // 학생이 가지고 있는 돈
 	
 	// 학생 이름과 가진 돈을 매개변수로 받는 생성자
 	public Student(String studentName, int money) {
 		this.studentName = studentName;
 		this.money = money;
 	}
-	
-	// 학생이 버스를 타면 1000원을 지불하는 기능을 구현한 메서드
-	public void takeBus(Bus bus) {
-		bus.take(1000);
-		this.money -= 1000;
+
+	public int takeBus(Bus bus) {
+		bus.take(); // 버스 돈+
+		money -= bus.CHARGE; // 학생 돈-
+		return money;
 	}
 	
 	// 학생이 지하철을 타면 1500원을 지불하는 기능을 구현한 메서드
-	public void takeSubway(Subway subway) {
-		subway.take(1500);
-		this.money -= 1500;
+	public int takeSubway(Subway subway) {
+		subway.take();
+		this.money -= subway.CHARGE;
+		return money;
 	}
 	
 	// 학생의 현재 정보를 출력하는 메서드
