@@ -2,12 +2,11 @@ package chapter6;
 
 public class CardCompanyTest {
 	public static void main(String[] args) {
-		CardCompany company = CardCompany.getInstance();
+		CardCompany cardCompany = CardCompany.getInstance();
+		Card[] cardList = cardCompany.createCard(3);
 		
-		Card card1 = company.createCard();
-		Card card2 = company.createCard();
-		
-		System.out.println(card1.getCardID());
-		System.out.println(card2.getCardID());
-	}
-}
+		for(int i = 0; i < cardList.length; i++) {
+			cardList[i].showCardInfo();
+		} // end for
+	} // end main
+} // end class

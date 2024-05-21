@@ -7,11 +7,8 @@ public class Card {
 		cardID = serialNum;
 	}
 
-	public int getCardID() {
-		return cardID;
-	}
-
-	public void setCardID(int cardID) {
-		this.cardID = cardID;
+	public void showCardInfo() {
+		System.out.println("현재 카드 번호 : " + cardID);
+		
 	}
 }
