@@ -10,8 +10,15 @@ public class Customer {
 	public Customer() {
 		customerGrade = "SILVER"; // 기본 등급
 		bonusRatio = 0.01; // 보너스 포인트 기본 적립 비율
+		System.out.println("Customer() 생성자");
 	}
 	
+	public Customer(int customerId) {
+		this.customerID = customerId;
+		System.out.println("Customer(int customerId) 생성자");
+	}
+	
+	@Deprecated
 	public int calcPrice(int price) {
 		bonusPoint += price * bonusRatio; // 보너스 포인트 계산
 		return price;
@@ -19,5 +26,10 @@ public class Customer {
 	
 	public String showCustomerInfo() {
 		return customerName + " 님의 등급은 " + customerGrade + "이며, 보너스 포인트는 " + bonusPoint + "입니다.";
+	}
+	
+	@Override
+	public String toString() {
+		return "안녕 나는 Customer 클래스야";
 	}
 } // end class
