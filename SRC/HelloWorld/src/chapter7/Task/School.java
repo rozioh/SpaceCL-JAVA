@@ -18,7 +18,8 @@ public class School {
 	public void addStudent(Student student) {
 		stuList.add(student);
 	}
-
+	
+// 	// ArrayList 정렬
 //	public void sortStudentLank() {
 //		Collections.sort(stuList, new Comparator<Student>() {
 //
@@ -66,6 +67,7 @@ public class School {
 		
 		int tempID;
 		int tempScore;
+		// 내림차순
 		for(int i = 1; i < stuSize - 1; i++) {
 			for(int j = 0; j < (stuSize - i); j++) {
 				if(scores[j][1] < scores[j + 1][1]) {
@@ -77,7 +79,7 @@ public class School {
 					scores[j+1][1] = tempScore;
 				}
 			}
-		}
+		} // end for
 	}
 	
 	// 전체 학생 랭킹 출력
@@ -93,10 +95,17 @@ public class School {
 	// 특정 학생 랭킹 출력
 	public void showStudentLankList(int studentID) {
 		sortBubble();
+		
+		for(Student s : stuList) {
+			if(s.studentID == studentID) {
+				System.out.print(s.studentName + "의 등수: " );
+			}
+		}
+		
 		for(int i = 0; i < scores.length; i++) {
 			if(scores[i][0] == studentID) {
-				System.out.println("학생ID: " + scores[i][0] + "등수: " + (i+1));
+				System.out.println(i+1 + "등");
 			}
 		}
 	}	
-}
+} // end class
