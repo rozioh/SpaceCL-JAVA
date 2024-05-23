@@ -2,6 +2,7 @@ package chapter9;
 /**
  * @author Ahn
  * @since 2024.05.23
+ * 
  * 추상 클래스 활용
  * 부모 클래스
  */

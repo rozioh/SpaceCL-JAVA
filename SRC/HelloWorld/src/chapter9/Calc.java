@@ -3,7 +3,6 @@ package chapter9;
 /**
  * @author Ahn
  * @since 2024.05.23
- * @version 1.0
  * 
  * 추상 클래스 활용
  * CalcAhn을 상속받은 자식 클래스
@@ -53,7 +52,13 @@ public class Calc extends CalcAhn {
 	
 	public static void main(String[] args) {
 		Calc calc = new Calc();
-		calc.showResult(1, 5, 4);
+		
+		// static 끼리는 서로 호출이 되는데 showResult는 아니니까 객체 생성 후에 사용해야한다.
+		calc.showResult(T_PLUS, 5, 4);
+		calc.showResult(T_MINUS, 5, 4);
+		calc.showResult(T_MULTIPLE, 5, 4);
+		calc.showResult(T_DIVIDE, 5, 4);
+
 	} // end main
 
 } // end class
