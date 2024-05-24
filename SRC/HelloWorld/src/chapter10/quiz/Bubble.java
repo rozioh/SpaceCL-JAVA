@@ -9,6 +9,7 @@ public class Bubble implements Sort {
 	@Override
 	public List<Integer> acending(List<Integer> list) {
 		Collections.sort(list);
+//		list.sort(Comparator.naturalOrder());
 		return list;
 	}
 
@@ -22,6 +23,7 @@ public class Bubble implements Sort {
 			}
 			
 		});
+//		list.sort(Comparator.reverseOrder());
 		return list;
 	}
 
