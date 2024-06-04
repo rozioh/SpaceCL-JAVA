@@ -30,7 +30,7 @@ public class BorderLayoutTest extends JFrame{
 	 * 로그인 성공여부를 체크한다.
 	 * @param tfId
 	 * @param tfPw
-	 * @return true: 로그인 성고, false: 로그인 실패
+	 * @return true: 로그인 성공, false: 로그인 실패
 	 */
 	public boolean isLoginCheck(TextField tfId, JPasswordField tfPw) {
 		if(tfId.getText() == null || "".equals(tfId.getText())) {
