@@ -1,4 +1,4 @@
-package chapter16.swing.grid;
+package chapter16.swing;
 
 import java.awt.Container;
 import java.awt.GridLayout;
