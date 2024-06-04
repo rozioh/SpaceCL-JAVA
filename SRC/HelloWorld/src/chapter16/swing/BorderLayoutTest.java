@@ -8,21 +8,47 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-import org.w3c.dom.Text;
 
 /**
  * @since 2024-06-04
+ * @author ahn
  * 
  * BorderLayout
  */
 public class BorderLayoutTest extends JFrame{
-	public BorderLayoutTest() {
-		
+	
+	/**
+	 * 로그인 성공여부를 체크한다.
+	 * @param tfId
+	 * @param tfPw
+	 * @return true: 로그인 성고, false: 로그인 실패
+	 */
+	public boolean isLoginCheck(TextField tfId, JPasswordField tfPw) {
+		if(tfId.getText() == null || "".equals(tfId.getText())) {
+			JOptionPane.showMessageDialog(null, "ID를 입력하세요");
+			tfId.requestFocus();
+			return false;
+		}else if("".equals(new String(tfPw.getPassword()))) {
+			JOptionPane.showMessageDialog(null, "PW를 입력하세요");
+			tfPw.requestFocus();
+			return false;
+		}else if("abcd".equals(tfId.getText()) && "0987!".equals(tfPw.getText())) {
+			JOptionPane.showMessageDialog(null, "로그인 성공");
+			return true;
+		}else {
+			JOptionPane.showMessageDialog(null, "로그인 실패");
+			tfPw.requestFocus();
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -50,7 +76,7 @@ public class BorderLayoutTest extends JFrame{
 		Label lb2 = new Label("PW: ");
 		lb2.setAlignment(Label.CENTER);
 		TextField tfId = new TextField();
-		TextField tfPw = new TextField();
+		JPasswordField tfPw = new JPasswordField();
 		
 		p1.add(lb1, 0);
 		p1.add(tfId);
@@ -62,24 +88,33 @@ public class BorderLayoutTest extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(tfId.getText());
-				
-				if(tfId.getText().equals("abcd") && tfPw.getText().equals("0987!")) {
-					JOptionPane.showMessageDialog(null, "로그인 성공");
-					bl.setVisible(false);
-				}else if(tfId.getText().equals("abcd")){
-					JOptionPane.showMessageDialog(null, "패스워드가 틀렸습니다.");
-				}else {
-					JOptionPane.showMessageDialog(null, "로그인에 실패했습니다.");
-				}
-				
-				
+				bl.isLoginCheck(tfId, tfPw);
 			}
 		};
 		
-		btn5.addActionListener(btnAct);
+		tfPw.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+//				System.out.println("keyPressed: " + e.getKeyChar());
+				if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+					System.out.println("엔터");
+					bl.isLoginCheck(tfId, tfPw);
+				}
+				
+			}
+		});
+//		btn5.addActionListener(btnAct);
 		
 		bl.setVisible(true);
-	}
+	} // end main
 	
 }
