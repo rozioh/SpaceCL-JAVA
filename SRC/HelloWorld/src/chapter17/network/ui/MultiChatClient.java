@@ -1,5 +1,8 @@
 package chapter17.network.ui;
 
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.Socket;
 
 public class MultiChatClient {
@@ -18,6 +21,20 @@ public class MultiChatClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} // 생성자
+	
+	// 서버로 메시지 전송
+	public void sendMsg(String msg) {
+		try {
+			OutputStream os = mSocket.getOutputStream();
+			BufferedOutputStream bos = new BufferedOutputStream(os);
+			byte[] bytes = msg.getBytes();
+			bos.write(bytes);
+			bos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	} // end method
 	
 }

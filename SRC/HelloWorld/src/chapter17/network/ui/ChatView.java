@@ -88,6 +88,9 @@ public class ChatView extends JFrame {
 		jta.setText(  jta.getText() + jt.getText() + "\n" );
 		jt.setText("");
 		jt.requestFocus();
+		
+		// 서버로 전송
+		mChatClinet.sendMsg(mNickName + " ===> " + jt.getText());
 	}
 	
 	
