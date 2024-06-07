@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class MultiChatClient {
+public class MultiChatClientUI {
 
 	private ChatView mChatView; 
 	private Socket mSocket;
 	
-	public MultiChatClient(ChatView chatView) {
+	public MultiChatClientUI(ChatView chatView) {
 		mChatView = chatView;
 		
 		try {

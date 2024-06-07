@@ -10,8 +10,8 @@ import java.util.Iterator;
 
 public class MultiChatServer {
 	
-	private HashMap<String , DataOutputStream> clients;
-	private ServerSocket serverSocket;
+	private HashMap<String , DataOutputStream> clients; // <nickName, Dataoutputstream만 저장한대 메시지를 보내기 위해서,
+	private ServerSocket serverSocket; // 쓰는곳은 없는데 그냥 빼놨대
 	
 	// 생성자
 	public MultiChatServer() {
@@ -24,17 +24,16 @@ public class MultiChatServer {
 	public void start() {
 		
 		try {
-			Socket socket;
-			
 			// 서버 소켓 생성
 			serverSocket = new ServerSocket(7777);
-			System.out.println("서버가 시작 되었습니다.");
+			System.out.println("서버가 시작 되었습니다.");  // cmd에서 ipconfig하면 ip나온다.
 			
 			// 무한 루프 돌면서 클라이언트와 연결되면 소켓을 생성하여 스레드로 돌린다.
 			while(true) {
-				socket = serverSocket.accept();
+				Socket socket = serverSocket.accept();
 				// 쓰레드 시작
-				
+				ServerReceiver receiver = new ServerReceiver(socket);
+				receiver.start();
 			}
 			
 		} catch (Exception e) {
